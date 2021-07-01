@@ -1,3 +1,5 @@
+// sidebar
+
 document.getElementById("atidarymoNuoroda").onclick = function () {
   var popup = document.getElementById("offcanvasAtidarymas");
 
@@ -8,11 +10,15 @@ document.getElementById("atidarymoNuoroda").onclick = function () {
   }
 };
 
+// close cookies
+
 document.getElementById("sutinku").onclick = function () {
   var cookies = document.getElementById("slapukai");
 
   cookies.classList.add("closed");
 };
+
+// basket
 
 document.getElementById("kvietejas").addEventListener("click", ikrepseli);
 
@@ -42,8 +48,11 @@ function ikrepseli() {
   document.getElementById("messages").innerHTML = zinute;
 }
 
+// reset button
+
 document.getElementById("result").addEventListener("click", clearResult);
 
 function clearResult() {
   document.getElementById("kiekis").value = "";
+  document.getElementById("messages").innerHTML = "";
 }
