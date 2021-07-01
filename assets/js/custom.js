@@ -41,3 +41,9 @@ function ikrepseli() {
 
   document.getElementById("messages").innerHTML = zinute;
 }
+
+document.getElementById("result").addEventListener("click", clearResult);
+
+function clearResult() {
+  document.getElementById("kiekis").value = "";
+}
