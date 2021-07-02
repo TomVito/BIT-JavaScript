@@ -95,3 +95,59 @@ for (let index in data) {
   }
   console.log(row);
 }
+
+//switch
+
+let reiksme = 0;
+
+switch (reiksme) {
+  case 0:
+    document.getElementById("messages").innerHTML = "Su penktadieniu!";
+    break;
+
+  case 1:
+    document.getElementById("messages").innerHTML = "Pirmadienis :(";
+    break;
+
+  case 2:
+    document.getElementById("messages").innerHTML = "Antradienis :|";
+    break;
+
+  case 3:
+    document.getElementById("messages").innerHTML = "Trečiadienis :)";
+    break;
+
+  default:
+    document.getElementById("kiekis").value = "0000";
+    document.getElementById("messages").innerHTML = "error";
+    alert("error");
+}
+
+//lenteles rodymas ir paslepimas + mygtuko pakeitimas
+
+document.getElementById("rodyti").onclick = function () {
+  var lentele = document.getElementById("lentele");
+
+  lentele.classList.toggle("show");
+
+  if (lentele.classList.contains("show") == false) {
+    document.getElementById("rodyti").innerText = "Rodyti";
+  } else {
+    document.getElementById("rodyti").innerText = "Slėpti";
+  }
+};
+
+//skaiciavimas
+
+i = 0;
+var suma = [1, 45, 7, 10, 8, 78, 12, 65, 97, 100, 24, 55, 32, 37, 99];
+var sum = 0;
+for (var i = 0; i < suma.length; i++) {
+  sum += suma[i];
+}
+
+console.log(sum);
+
+document.getElementById("calculate").onclick = function () {
+  document.getElementById("rezultatas").value = sum;
+};

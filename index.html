@@ -17,10 +17,18 @@
   <body>
     <div class="basket">
       <div class="container">
-        <div id="messages"></div>
-        <input type="number" id="kiekis" value="1" />
-        <button class="btn-primary" id="kvietejas">Į krepšelį</button>
-        <button class="btn-secondary" id="result">Naujinti</button>
+        <div class="row">
+          <div class="col-6">
+            <div id="messages"></div>
+            <input type="number" id="kiekis" value="1" />
+            <button class="btn-primary" id="kvietejas">Į krepšelį</button>
+            <button class="btn-secondary" id="result">Naujinti</button>
+          </div>
+          <div class="col-6">
+            <input type="text" id="rezultatas" />
+            <button class="btn-success" id="calculate">Skaičiuoti</button>
+          </div>
+        </div>
       </div>
     </div>
     <div id="offcanvasAtidarymas" class="offcanvas-popup-container">
@@ -58,7 +66,18 @@
         </div>
       </div>
     </div>
-
+    <div class="container">
+      <table class="lentele" id="lentele">
+        <button class="btn-primary mt-5" id="rodyti">Rodyti</button>
+        <thead>
+          <th>Miestas</th>
+          <th>Adresas</th>
+          <th>Data</th>
+          <th>Kiekis</th>
+        </thead>
+        <tbody id="lentelesVidus"></tbody>
+      </table>
+    </div>
     <div id="slapukai" class="slapukai-container">
       <h2>ŠIOJE SVETAINĖJE NAUDOJAMI SLAPUKAI</h2>
       <p>
