@@ -139,7 +139,6 @@ document.getElementById("rodyti").onclick = function () {
 
 //skaiciavimas
 
-i = 0;
 var suma = [1, 45, 7, 10, 8, 78, 12, 65, 97, 100, 24, 55, 32, 37, 99];
 var sum = 0;
 for (var i = 0; i < suma.length; i++) {
