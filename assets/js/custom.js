@@ -123,6 +123,34 @@ switch (reiksme) {
     alert("error");
 }
 
+//switch uzduotis
+
+document.getElementById("cars-select").onclick = function () {
+  var car = document.getElementById("cars");
+
+  var message = "";
+
+  switch (car.value) {
+    case "Volvo":
+      message = "Saugumas";
+      break;
+    case "Saab":
+      message = "Nebegaminamas";
+      break;
+    case "Opel":
+      message = "Amerikietis";
+      break;
+    case "Audi":
+      message = "Žiedai";
+      break;
+
+    default:
+      message = "Viešasis transportas";
+  }
+
+  alert(message);
+};
+
 //lenteles rodymas ir paslepimas + mygtuko pakeitimas
 
 document.getElementById("rodyti").onclick = function () {
@@ -145,8 +173,21 @@ for (var i = 0; i < suma.length; i++) {
   sum += suma[i];
 }
 
-console.log(sum);
-
 document.getElementById("calculate").onclick = function () {
   document.getElementById("rezultatas").value = sum;
 };
+
+console.log(sum);
+
+//jQuery
+
+jQuery(document).ready(function () {
+  jQuery(".naujasmygtukas").addClass("klase");
+
+  jQuery("#naujasmygtukas").removeClass("klase");
+
+  jQuery(".naujasmygtukas").click(function () {
+    alert("Cia yra naujasmygtukas");
+    jQuery("#naujasmygtukas").addClass("btn-success");
+  });
+});
