@@ -88,13 +88,19 @@ const data = [
   },
 ];
 
+let html = "";
+let ending = "";
+
 for (let index in data) {
-  let row = "";
-  for (let text in data[index]) {
-    row += data[index][text] + " ";
+  html += "<tr>";
+
+  for (let index2 in data[index]) {
+    html += "<td>" + data[index][index2] + "</td>";
   }
-  console.log(row);
+  html += "</tr>";
 }
+
+document.getElementById("lentelesVidus").innerHTML = html;
 
 //switch
 
@@ -189,5 +195,44 @@ jQuery(document).ready(function () {
   jQuery(".naujasmygtukas").click(function () {
     alert("Cia yra naujasmygtukas");
     jQuery("#naujasmygtukas").addClass("btn-success");
+  });
+
+  jQuery("#cars").change(function () {
+    var car = jQuery("#cars")[0];
+
+    var message = "";
+
+    switch (car.value) {
+      case "Volvo":
+        message = "Saugumas";
+        break;
+      case "Saab":
+        message = "Nebegaminamas";
+        break;
+      case "Opel":
+        message = "Amerikietis";
+        break;
+      case "Audi":
+        message = "Žiedai";
+        break;
+
+      default:
+        message = "Viešasis transportas";
+    }
+    jQuery("#cars-message").html(message);
+  });
+
+  jQuery("#nuoroda").append(
+    '<div class="integruotas"><a href="#" class="integruotaNuoroda">Nuoroda</a></div>'
+  );
+
+  jQuery("#nuoroda").click(function () {
+    alert("Paspaudimas");
+  });
+
+  jQuery(data).each(function (index, reiksme) {
+    jQuery(reiksme).each(function (index, reiksme) {
+      console.log(reiksme);
+    });
   });
 });
