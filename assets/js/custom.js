@@ -88,6 +88,8 @@ const data = [
   },
 ];
 
+data[1]["Tautybė"] = "Pabėgėlis";
+
 let html = "";
 let ending = "";
 
@@ -99,6 +101,43 @@ for (let index in data) {
   }
   html += "</tr>";
 }
+
+
+const duomenys = [
+  {
+    Klientas: 'Adomavičiaus įmonė',
+    Kodas: '1000',
+    Data: '2020.06.20',
+    Produktas: 'Nešiojamas kompiuteris',
+    Kaina: '1499',
+    Papildoma_informacija: '',
+  },
+  {
+    Klientas: 'UAB "KESKO SENUKAI"',
+    Kodas: '1001',
+    Data: '2020.06.21',
+    Produktas: 'Televizorius',
+    Kaina: '800',
+    Papildoma_informacija: 'Reikalingas pristatymas',
+  }, 
+  {
+    Klientas: 'UAB "SIMPLEA"',
+    Kodas: '1002',
+    Data: '2020.06.22',
+    Produktas: 'Telefonas',
+    Kaina: '299',
+    Papildoma_informacija: '',
+  },
+  {
+    Klientas: 'UAB "5 Konteineriai"',
+    Kodas: '1003',
+    Data: '2020.06.23',
+    Produktas: 'Planšetė',
+    Kaina: '450',
+    Papildoma_informacija: '',
+  },
+]
+
 
 document.getElementById("lentelesVidus").innerHTML = html;
 
@@ -171,6 +210,18 @@ document.getElementById("rodyti").onclick = function () {
   }
 };
 
+document.getElementById("j-rodyti").onclick = function () {
+  var lentele = document.getElementById("j-lentele");
+
+  lentele.classList.toggle("show");
+
+  if (lentele.classList.contains("show") == false) {
+    document.getElementById("j-rodyti").innerText = "J-rodyti";
+  } else {
+    document.getElementById("j-rodyti").innerText = "J-slėpti";
+  }
+};
+
 //skaiciavimas
 
 var suma = [1, 45, 7, 10, 8, 78, 12, 65, 97, 100, 24, 55, 32, 37, 99];
@@ -187,6 +238,8 @@ console.log(sum);
 
 //jQuery
 
+  //mygtukas ir klases
+
 jQuery(document).ready(function () {
   jQuery(".naujasmygtukas").addClass("klase");
 
@@ -196,6 +249,8 @@ jQuery(document).ready(function () {
     alert("Cia yra naujasmygtukas");
     jQuery("#naujasmygtukas").addClass("btn-success");
   });
+
+  //change funkcija
 
   jQuery("#cars").change(function () {
     var car = jQuery("#cars")[0];
@@ -222,17 +277,52 @@ jQuery(document).ready(function () {
     jQuery("#cars-message").html(message);
   });
 
+  //append
+
   jQuery("#nuoroda").append(
     '<div class="integruotas"><a href="#" class="integruotaNuoroda">Nuoroda</a></div>'
   );
 
-  jQuery("#nuoroda").click(function () {
+  jQuery("#nuoroda a").click(function () {
     alert("Paspaudimas");
   });
+
+  //masyvas su jQuery
 
   jQuery(data).each(function (index, reiksme) {
     jQuery(reiksme).each(function (index, reiksme) {
       console.log(reiksme);
     });
   });
+
+  //lenteles su jQuery (copy from stackoverflow)
+
+  var tbody = jQuery('#j-lentele tbody'),
+  reiksmes = ["Vardas", "Pavardė", "Gimimo_metai", "Tautybė"];
+  
+  jQuery.each(data, function(i, data) {
+  var tr = jQuery('<tr>');
+  jQuery.each(reiksmes, function(i, reiksmes) {
+  jQuery('<td>').html(data[reiksmes]).appendTo(tr);  
+  });
+  tbody.append(tr);
+  });
+
+  //simple variantas? 
+  
+  //('#j-lentelesVidus').append(html);
+
+  // dar viena lentele jQuery
+
+  var tbody = jQuery('#html-lentele tbody'),
+  reiksmes = ["Klientas", "Kodas", "Data", "Produktas", "Kaina", "Papildoma informacija"];
+  
+  jQuery.each(duomenys, function(i, duomenys) {
+  var tr = jQuery('<tr>');
+  jQuery.each(reiksmes, function(i, reiksmes) {
+  jQuery('<td>').html(duomenys[reiksmes]).appendTo(tr);  
+  });
+  tbody.append(tr);
+  });
+
 });
