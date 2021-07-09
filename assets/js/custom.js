@@ -84,7 +84,7 @@ const data = [
     Vardas: "Stasas",
     Pavardė: "Basas",
     Gimimo_metai: "1980-09-14",
-    Tautybė: "Yugoslavyan",
+    Tautybė: "Yugoslavyan"
   },
 ];
 
@@ -102,6 +102,8 @@ for (let index in data) {
   html += "</tr>";
 }
 
+document.getElementById("lentelesVidus").innerHTML = html;
+
 
 const duomenys = [
   {
@@ -110,7 +112,7 @@ const duomenys = [
     Data: '2020.06.20',
     Produktas: 'Nešiojamas kompiuteris',
     Kaina: '1499',
-    Papildoma_informacija: '',
+    Papildoma_informacija: 'Prekė bus 2020.06.29',
   },
   {
     Klientas: 'UAB "KESKO SENUKAI"',
@@ -118,7 +120,7 @@ const duomenys = [
     Data: '2020.06.21',
     Produktas: 'Televizorius',
     Kaina: '800',
-    Papildoma_informacija: 'Reikalingas pristatymas',
+    Papildoma_informacija: '',
   }, 
   {
     Klientas: 'UAB "SIMPLEA"',
@@ -134,12 +136,9 @@ const duomenys = [
     Data: '2020.06.23',
     Produktas: 'Planšetė',
     Kaina: '450',
-    Papildoma_informacija: '',
+    Papildoma_informacija: ' Liko tik 1 vnt.'
   },
 ]
-
-
-document.getElementById("lentelesVidus").innerHTML = html;
 
 //switch
 
@@ -314,8 +313,10 @@ jQuery(document).ready(function () {
 
   // dar viena lentele jQuery
 
+  /* senas variantas
+
   var tbody = jQuery('#html-lentele tbody'),
-  reiksmes = ["Klientas", "Kodas", "Data", "Produktas", "Kaina", "Papildoma informacija"];
+  reiksmes = ["Klientas", "Kodas", "Data", "Produktas", "Kaina", "Papildoma_informacija"];
   
   jQuery.each(duomenys, function(i, duomenys) {
   var tr = jQuery('<tr>');
@@ -324,5 +325,18 @@ jQuery(document).ready(function () {
   });
   tbody.append(tr);
   });
+  */
 
+  //naujas pataisytas lenteles variantas
+
+  var tbody = jQuery('#html-lentele tbody');
+
+  jQuery.each(duomenys, function(i, r) {
+  var tr = jQuery('<tr>');
+  jQuery.each(r, function(i, k) {
+  jQuery('<td>').html(k).appendTo(tr);  
+  });
+  tbody.append(tr);
+  });
+  
 });
