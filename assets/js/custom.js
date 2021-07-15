@@ -235,6 +235,74 @@ document.getElementById("calculate").onclick = function () {
 
 console.log(sum);
 
+//uzduotys 
+
+//1. Sukurkite tris kintamuosius, kurie saugotų tris reikšmes: Vardas, Pavardė, Gimimo metai ir naudojantis jais puslapyje atvaizduokite eilutę:
+//“Aš esu Vardenis Pavardenis gimęs xxx”.
+
+var Vardas = 'Aš esu Vardenis';
+
+var Pavardė = 'Pavardenis';
+
+var Gimimo_metai = 'gimęs xxx';
+
+document.getElementById('javascript-testai').innerHTML = Vardas + " " + Pavardė + " " + Gimimo_metai + " ";
+
+//2. Sukurkite kintamąjį kurio reikšmė būtų skaičius su liekana ir suapvalinkite jį iki sveiko skaičiaus. (Trys galimos funkcijos Math)
+
+var nelyginis = 7.4;
+
+document.getElementById('javascript-testai').innerHTML += (Math.round(nelyginis)) + " ";
+
+//3. Integruokite skripte žemiau pateiktą funkciją:
+
+var min = 666;
+
+var max = 999;
+
+function randomSkaicius(min, max) { 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+document.getElementById('javascript-testai').innerHTML += randomSkaicius(min, max) + " ";
+
+//4. Sukurkite du kintamuosius ir naudodamiesi trečiame punkte pateikta funkcija priskirkite jiems atsitiktines reikšmes nuo 0 iki 4. 
+//Padalinkite pirmąją reikšmę iš antrosios ir gautąjį rezultatą suapvalinkite iki sveiko skaičiaus. (Optional: esant reikalui grąžinkite žinutę: dalyba negalima) 
+
+var pirmas = 0;
+
+var antras = 0;
+
+function atsitiktinisSkaicius(pirmas) {
+  return Math.floor(Math.random() * 5);
+}
+
+function atsitiktinisSkaicius(antras) {
+  return Math.floor(Math.random() * 5);
+}
+
+document.getElementById('javascript-testai').innerHTML += atsitiktinisSkaicius(pirmas) + " ";
+document.getElementById('javascript-testai').innerHTML += atsitiktinisSkaicius(antras) + " ";
+
+let dalyba = Math.round(atsitiktinisSkaicius(pirmas) / atsitiktinisSkaicius(antras));
+
+document.getElementById('javascript-testai').innerHTML += dalyba + " ";
+
+//5. Pasinaudodami trečiame punkte pateikta funkcija, sukurkite tris kintamuosius ir priskirkite jiems tris reiksmes nuo 0 iki 25.
+//Pasitelke Math.min() ir Math.max() metodus suraskite vidurinį skaičių.
+
+
+
+//6. Sugeneruokite atsitiktinį skaičių (nebūtinai sveiką) ir jį atvaizduokite savo puslapyje.
+
+let netyciukas = Math.random();
+
+document.getElementById('javascript-testai').innerHTML += netyciukas + " ";
+
+//7. Atspausdinkite tris skaičius nuo -10 iki 10 pasinaudodami ta pačia funkcija. Skaičiai mažesni už 0 turi būti pažymėti raudonai, 0 mėlynai, o didesni už nulį žalia spalva.
+
+
+
 //jQuery
 
   //mygtukas ir klases
