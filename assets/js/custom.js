@@ -240,53 +240,55 @@ console.log(sum);
 //1. Sukurkite tris kintamuosius, kurie saugotų tris reikšmes: Vardas, Pavardė, Gimimo metai ir naudojantis jais puslapyje atvaizduokite eilutę:
 //“Aš esu Vardenis Pavardenis gimęs xxx”.
 
-var Vardas = 'Tomas';
+document.querySelector('#javascript-testai').innerHTML = '<h6>Užduotis nr. 1</h6>';
 
-var Pavardė = 'Vitonis';
+const Vardas = 'Tomas';
 
-var Gimimo_metai = '1991-09-19';
+const Pavardė = 'Vitonis';
 
-document.getElementById('javascript-testai').innerHTML = Vardas + " " + Pavardė + " " + Gimimo_metai + " ";
+const Gimimo_metai = '1991-09-19';
+
+let details = Vardas + ' ' + Pavardė + ' ' + Gimimo_metai;
+
+document.querySelector('#javascript-testai').innerHTML += details;
 
 //2. Sukurkite kintamąjį kurio reikšmė būtų skaičius su liekana ir suapvalinkite jį iki sveiko skaičiaus. (Trys galimos funkcijos Math)
 
-var nelyginis = 7.4;
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 2</h6>';
 
-document.getElementById('javascript-testai2').innerHTML = (Math.round(nelyginis)) + " ";
+let nelyginis = 83.723;
+
+document.querySelector('#javascript-testai').innerHTML +='Suapvalintas skaičius:' + ' ' + (Math.round(nelyginis));
 
 //3. Integruokite skripte žemiau pateiktą funkciją:
 
-var min = 666;
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 3</h6>';
 
-var max = 999;
+const min = 666;
+
+const max = 999;
 
 function randomSkaicius(min, max) { 
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-document.getElementById('javascript-testai3').innerHTML = randomSkaicius(min, max) + " ";
+document.querySelector('#javascript-testai').innerHTML += 'Bet koks skaičius nuo 666 iki 999:' + ' ' + randomSkaicius(min, max) + ' ';
 
 //4. Sukurkite du kintamuosius ir naudodamiesi trečiame punkte pateikta funkcija priskirkite jiems atsitiktines reikšmes nuo 0 iki 4. 
 //Padalinkite pirmąją reikšmę iš antrosios ir gautąjį rezultatą suapvalinkite iki sveiko skaičiaus. (Optional: esant reikalui grąžinkite žinutę: dalyba negalima) 
 
-var pirmas = 0;
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 4</h6>';
 
-var antras = 0;
+const first = randomSkaicius(0, 4);
+const second = randomSkaicius(0, 4);
 
-function atsitiktinisSkaicius(pirmas) {
-  return Math.floor(Math.random() * 5);
-}
+let dalyba = Math.floor(first/second);
 
-function atsitiktinisSkaicius(antras) {
-  return Math.floor(Math.random() * 5);
-}
+if(second == 0)     
+    dalyba = 'Dalyba negalima';
 
-document.getElementById('javascript-testai4').innerHTML = atsitiktinisSkaicius(pirmas) + " ";
-document.getElementById('javascript-testai4').innerHTML = atsitiktinisSkaicius(antras) + " ";
+document.querySelector('#javascript-testai').innerHTML += 'Pirmas skaičius:' + ' ' + first + ' ' + 'Antras:' + ' ' + second + ' ' + 'Padalinta:' + ' ' + dalyba;
 
-let dalyba = Math.round(atsitiktinisSkaicius(pirmas) / atsitiktinisSkaicius(antras));
-
-document.getElementById('javascript-testai4').innerHTML = dalyba + " ";
 
 //5. Pasinaudodami trečiame punkte pateikta funkcija, sukurkite tris kintamuosius ir priskirkite jiems tris reiksmes nuo 0 iki 25.
 //Pasitelke Math.min() ir Math.max() metodus suraskite vidurinį skaičių.
@@ -297,7 +299,7 @@ document.getElementById('javascript-testai4').innerHTML = dalyba + " ";
 
 let netyciukas = Math.random();
 
-document.getElementById('javascript-testai6').innerHTML = netyciukas + " ";
+document.getElementById('javascript-testai').innerHTML += netyciukas + " ";
 
 //7. Atspausdinkite tris skaičius nuo -10 iki 10 pasinaudodami ta pačia funkcija. Skaičiai mažesni už 0 turi būti pažymėti raudonai, 0 mėlynai, o didesni už nulį žalia spalva.
 
