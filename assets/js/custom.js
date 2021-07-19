@@ -252,7 +252,7 @@ document.getElementById('javascript-testai').innerHTML = Vardas + " " + Pavardė
 
 var nelyginis = 7.4;
 
-document.getElementById('javascript-testai2').innerHTML += (Math.round(nelyginis)) + " ";
+document.getElementById('javascript-testai2').innerHTML = (Math.round(nelyginis)) + " ";
 
 //3. Integruokite skripte žemiau pateiktą funkciją:
 
@@ -264,7 +264,7 @@ function randomSkaicius(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-document.getElementById('javascript-testai3').innerHTML += randomSkaicius(min, max) + " ";
+document.getElementById('javascript-testai3').innerHTML = randomSkaicius(min, max) + " ";
 
 //4. Sukurkite du kintamuosius ir naudodamiesi trečiame punkte pateikta funkcija priskirkite jiems atsitiktines reikšmes nuo 0 iki 4. 
 //Padalinkite pirmąją reikšmę iš antrosios ir gautąjį rezultatą suapvalinkite iki sveiko skaičiaus. (Optional: esant reikalui grąžinkite žinutę: dalyba negalima) 
@@ -281,12 +281,12 @@ function atsitiktinisSkaicius(antras) {
   return Math.floor(Math.random() * 5);
 }
 
-document.getElementById('javascript-testai4').innerHTML += atsitiktinisSkaicius(pirmas) + " ";
-document.getElementById('javascript-testai4').innerHTML += atsitiktinisSkaicius(antras) + " ";
+document.getElementById('javascript-testai4').innerHTML = atsitiktinisSkaicius(pirmas) + " ";
+document.getElementById('javascript-testai4').innerHTML = atsitiktinisSkaicius(antras) + " ";
 
 let dalyba = Math.round(atsitiktinisSkaicius(pirmas) / atsitiktinisSkaicius(antras));
 
-document.getElementById('javascript-testai4').innerHTML += dalyba + " ";
+document.getElementById('javascript-testai4').innerHTML = dalyba + " ";
 
 //5. Pasinaudodami trečiame punkte pateikta funkcija, sukurkite tris kintamuosius ir priskirkite jiems tris reiksmes nuo 0 iki 25.
 //Pasitelke Math.min() ir Math.max() metodus suraskite vidurinį skaičių.
@@ -297,7 +297,7 @@ document.getElementById('javascript-testai4').innerHTML += dalyba + " ";
 
 let netyciukas = Math.random();
 
-document.getElementById('javascript-testai6').innerHTML += netyciukas + " ";
+document.getElementById('javascript-testai6').innerHTML = netyciukas + " ";
 
 //7. Atspausdinkite tris skaičius nuo -10 iki 10 pasinaudodami ta pačia funkcija. Skaičiai mažesni už 0 turi būti pažymėti raudonai, 0 mėlynai, o didesni už nulį žalia spalva.
 
