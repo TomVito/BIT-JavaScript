@@ -235,76 +235,6 @@ document.getElementById("calculate").onclick = function () {
 
 console.log(sum);
 
-//uzduotys 
-
-//1. Sukurkite tris kintamuosius, kurie saugotų tris reikšmes: Vardas, Pavardė, Gimimo metai ir naudojantis jais puslapyje atvaizduokite eilutę:
-//“Aš esu Vardenis Pavardenis gimęs xxx”.
-
-document.querySelector('#javascript-testai').innerHTML = '<h6>Užduotis nr. 1</h6>';
-
-const Vardas = 'Tomas';
-
-const Pavardė = 'Vitonis';
-
-const Gimimo_metai = '1991-09-19';
-
-let details = Vardas + ' ' + Pavardė + ' ' + Gimimo_metai;
-
-document.querySelector('#javascript-testai').innerHTML += details;
-
-//2. Sukurkite kintamąjį kurio reikšmė būtų skaičius su liekana ir suapvalinkite jį iki sveiko skaičiaus. (Trys galimos funkcijos Math)
-
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 2</h6>';
-
-let nelyginis = 83.723;
-
-document.querySelector('#javascript-testai').innerHTML +='Suapvalintas skaičius:' + ' ' + (Math.round(nelyginis));
-
-//3. Integruokite skripte žemiau pateiktą funkciją:
-
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 3</h6>';
-
-const min = 666;
-
-const max = 999;
-
-function randomSkaicius(min, max) { 
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-document.querySelector('#javascript-testai').innerHTML += 'Bet koks skaičius nuo 666 iki 999:' + ' ' + randomSkaicius(min, max) + ' ';
-
-//4. Sukurkite du kintamuosius ir naudodamiesi trečiame punkte pateikta funkcija priskirkite jiems atsitiktines reikšmes nuo 0 iki 4. 
-//Padalinkite pirmąją reikšmę iš antrosios ir gautąjį rezultatą suapvalinkite iki sveiko skaičiaus. (Optional: esant reikalui grąžinkite žinutę: dalyba negalima) 
-
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 4</h6>';
-
-const first = randomSkaicius(0, 4);
-const second = randomSkaicius(0, 4);
-
-let dalyba = Math.floor(first/second);
-
-if(second == 0)     
-    dalyba = 'Dalyba negalima';
-
-document.querySelector('#javascript-testai').innerHTML += 'Pirmas skaičius:' + ' ' + first + ' ' + 'Antras:' + ' ' + second + ' ' + 'Padalinta:' + ' ' + dalyba;
-
-
-//5. Pasinaudodami trečiame punkte pateikta funkcija, sukurkite tris kintamuosius ir priskirkite jiems tris reiksmes nuo 0 iki 25.
-//Pasitelke Math.min() ir Math.max() metodus suraskite vidurinį skaičių.
-
-
-
-//6. Sugeneruokite atsitiktinį skaičių (nebūtinai sveiką) ir jį atvaizduokite savo puslapyje.
-
-let netyciukas = Math.random();
-
-document.getElementById('javascript-testai').innerHTML += netyciukas + " ";
-
-//7. Atspausdinkite tris skaičius nuo -10 iki 10 pasinaudodami ta pačia funkcija. Skaičiai mažesni už 0 turi būti pažymėti raudonai, 0 mėlynai, o didesni už nulį žalia spalva.
-
-
-
 //jQuery
 
   //mygtukas ir klases
@@ -410,3 +340,120 @@ jQuery(document).ready(function () {
   });
   
 });
+
+//uzduotys 
+
+//1. Sukurkite tris kintamuosius, kurie saugotų tris reikšmes: Vardas, Pavardė, Gimimo metai ir naudojantis jais puslapyje atvaizduokite eilutę:
+//“Aš esu Vardenis Pavardenis gimęs xxx”.
+
+document.querySelector('#javascript-testai').innerHTML = '<h6>Užduotis nr. 1</h6>';
+
+const Vardas = 'Tomas';
+
+const Pavardė = 'Vitonis';
+
+const Gimimo_metai = '1991-09-19';
+
+let details = Vardas + ' ' + Pavardė + ' ' + Gimimo_metai;
+
+document.querySelector('#javascript-testai').innerHTML += details;
+
+//2. Sukurkite kintamąjį kurio reikšmė būtų skaičius su liekana ir suapvalinkite jį iki sveiko skaičiaus. (Trys galimos funkcijos Math)
+
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 2</h6>';
+
+let nelyginis = 83.723;
+
+document.querySelector('#javascript-testai').innerHTML +='Suapvalintas skaičius:' + ' ' + (Math.round(nelyginis));
+
+//3. Integruokite skripte žemiau pateiktą funkciją:
+
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 3</h6>';
+
+const min = 666;
+
+const max = 999;
+
+function randomSkaicius(min, max) { 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+document.querySelector('#javascript-testai').innerHTML += 'Bet koks skaičius nuo 666 iki 999:' + ' ' + randomSkaicius(min, max);
+
+//4. Sukurkite du kintamuosius ir naudodamiesi trečiame punkte pateikta funkcija priskirkite jiems atsitiktines reikšmes nuo 0 iki 4. 
+//Padalinkite pirmąją reikšmę iš antrosios ir gautąjį rezultatą suapvalinkite iki sveiko skaičiaus. (Optional: esant reikalui grąžinkite žinutę: dalyba negalima) 
+
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 4</h6>';
+
+const first = randomSkaicius(0, 4);
+const second = randomSkaicius(0, 4);
+
+let dalyba = Math.floor(first / second);
+
+if(second == 0)     
+    dalyba = 'dalyba negalima';
+
+document.querySelector('#javascript-testai').innerHTML += 'Pirmas skaičius:' + ' ' + first + ' ' + 'Antras:' + ' ' + second + ' ' + 'Padalinta:' + ' ' + dalyba;
+
+
+//5. Pasinaudodami trečiame punkte pateikta funkcija, sukurkite tris kintamuosius ir priskirkite jiems tris reiksmes nuo 0 iki 25.
+//Pasitelke Math.min() ir Math.max() metodus suraskite vidurinį skaičių.
+
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 5</h6>';
+
+const medf = 12
+const meds = 5
+const medt = 2
+
+let median = Math.max( 
+  Math.min( medf, meds ), 
+  Math.min( Math.max( medf, meds), medt)
+);
+
+document.querySelector('#javascript-testai').innerHTML += 'Pirmas skaičius: '+ medf +' Antras skaičius: ' + meds + ' Trecias skaičius: ' + medt + ' Mediana:' + ' ' + median;
+
+//6. Sugeneruokite atsitiktinį skaičių (nebūtinai sveiką) ir jį atvaizduokite savo puslapyje.
+
+document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 6</h6>';
+
+let netyciukas = Math.floor(Math.random() * 99999);
+
+document.querySelector('#javascript-testai').innerHTML += netyciukas;
+
+//7. Atspausdinkite tris skaičius nuo -10 iki 10 pasinaudodami ta pačia funkcija. Skaičiai mažesni už 0 turi būti pažymėti raudonai, 0 mėlynai, o didesni už nulį žalia spalva.
+
+
+
+//užduotis 'ciklai'
+
+document.querySelector('#ciklai').innerHTML = '<h2>Ciklai</h2>';
+
+let text = "";
+let counter = 0;
+
+for (let i = 0; i < 400; i++) {
+
+  text += '*';
+
+  counter++;
+
+  if(counter == 50) {
+    text += '<br />';
+    counter = 0;
+  }
+  
+}
+
+document.querySelector('#ciklai').innerHTML += text;
+
+let threeh = [];
+
+while(threeh.length < 300){
+
+    let r = Math.floor(Math.random() * 300) + 1;
+
+    if(threeh.indexOf(r) === -1) threeh.push(r);
+
+}
+
+document.querySelector('#ciklai').innerHTML += threeh;

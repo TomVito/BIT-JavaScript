@@ -182,3 +182,7 @@
 .html-lentele td:last-child {
   border-right: none;
 }
+
+#ciklai {
+  word-wrap: break-word;
+}
