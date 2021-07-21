@@ -346,7 +346,7 @@ jQuery(document).ready(function () {
 //1. Sukurkite tris kintamuosius, kurie saugotų tris reikšmes: Vardas, Pavardė, Gimimo metai ir naudojantis jais puslapyje atvaizduokite eilutę:
 //“Aš esu Vardenis Pavardenis gimęs xxx”.
 
-document.querySelector('#javascript-testai').innerHTML = '<h6>Užduotis nr. 1</h6>';
+document.querySelector('#javascript-testai').innerHTML = '<h5>Užduotis nr. 1</h5>';
 
 const Vardas = 'Tomas';
 
@@ -360,7 +360,7 @@ document.querySelector('#javascript-testai').innerHTML += details;
 
 //2. Sukurkite kintamąjį kurio reikšmė būtų skaičius su liekana ir suapvalinkite jį iki sveiko skaičiaus. (Trys galimos funkcijos Math)
 
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 2</h6>';
+document.querySelector('#javascript-testai').innerHTML += '<h5>Užduotis nr. 2</h5>';
 
 let nelyginis = 83.723;
 
@@ -368,7 +368,7 @@ document.querySelector('#javascript-testai').innerHTML +='Suapvalintas skaičius
 
 //3. Integruokite skripte žemiau pateiktą funkciją:
 
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 3</h6>';
+document.querySelector('#javascript-testai').innerHTML += '<h5>Užduotis nr. 3</h5>';
 
 const min = 666;
 
@@ -383,7 +383,7 @@ document.querySelector('#javascript-testai').innerHTML += 'Bet koks skaičius nu
 //4. Sukurkite du kintamuosius ir naudodamiesi trečiame punkte pateikta funkcija priskirkite jiems atsitiktines reikšmes nuo 0 iki 4. 
 //Padalinkite pirmąją reikšmę iš antrosios ir gautąjį rezultatą suapvalinkite iki sveiko skaičiaus. (Optional: esant reikalui grąžinkite žinutę: dalyba negalima) 
 
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 4</h6>';
+document.querySelector('#javascript-testai').innerHTML += '<h5>Užduotis nr. 4</h5>';
 
 const first = randomSkaicius(0, 4);
 const second = randomSkaicius(0, 4);
@@ -399,7 +399,7 @@ document.querySelector('#javascript-testai').innerHTML += 'Pirmas skaičius:' + 
 //5. Pasinaudodami trečiame punkte pateikta funkcija, sukurkite tris kintamuosius ir priskirkite jiems tris reiksmes nuo 0 iki 25.
 //Pasitelke Math.min() ir Math.max() metodus suraskite vidurinį skaičių.
 
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 5</h6>';
+document.querySelector('#javascript-testai').innerHTML += '<h5>Užduotis nr. 5</h5>';
 
 const medf = 12
 const meds = 5
@@ -414,7 +414,7 @@ document.querySelector('#javascript-testai').innerHTML += 'Pirmas skaičius: '+ 
 
 //6. Sugeneruokite atsitiktinį skaičių (nebūtinai sveiką) ir jį atvaizduokite savo puslapyje.
 
-document.querySelector('#javascript-testai').innerHTML += '<h6>Užduotis nr. 6</h6>';
+document.querySelector('#javascript-testai').innerHTML += '<h5>Užduotis nr. 6</h5>';
 
 let netyciukas = Math.floor(Math.random() * 99999);
 
@@ -428,6 +428,8 @@ document.querySelector('#javascript-testai').innerHTML += netyciukas;
 
 document.querySelector('#ciklai').innerHTML = '<h2>Ciklai</h2>';
 
+document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>400“*”</h5>' + '<br>';
+
 let text = "";
 let counter = 0;
 
@@ -436,24 +438,73 @@ for (let i = 0; i < 400; i++) {
   text += '*';
 
   counter++;
-
+ 
   if(counter == 50) {
     text += '<br />';
     counter = 0;
   }
-  
+
 }
 
 document.querySelector('#ciklai').innerHTML += text;
 
-let threeh = [];
+document.querySelector('#ciklai').innerHTML += '<br>' +  '<h5>300 atsitiktinių skaičių nuo 0 iki 300</h5>' + '<br>';
 
-while(threeh.length < 300){
+let skaicius = 0;
+let skaiciai = '';
+let didesni = 0;
 
-    let r = Math.floor(Math.random() * 300) + 1;
+for (let i = 0; i < 300; i++) {
+  skaicius = randomSkaicius(0, 300);
 
-    if(threeh.indexOf(r) === -1) threeh.push(r);
+  if(skaicius > 150)
+      didesni++;
+
+  if(skaicius > 275) {
+      skaiciai += '<span style="color: red;">' + skaicius + '</span>';
+    } else {
+        skaiciai += skaicius;
+    }
+
+  if(i != 299)
+      skaiciai += ', ';
 
 }
 
-document.querySelector('#ciklai').innerHTML += threeh;
+document.querySelector('#ciklai').innerHTML += skaiciai + '<br>' + '<strong>Didesni skaičiai už 150:' + ' ' + '<span style="color: blue;">' + didesni + '</span>' + '<br>';
+
+document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Skaičiai nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos</h5>' + '<br>';
+
+let integer = 0;
+let string = '';
+
+for(let i = 1; i < 3000; i++) {
+
+    integer = i / 77;
+
+    if(Number.isInteger(integer)) {
+
+      if(i != 77) {
+        string += ', ';
+      }
+        string += i;
+    }
+
+}
+
+document.querySelector('#ciklai').innerHTML += string + '<br>';
+
+document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Kvadratas</h5>' + '<br>';
+
+let kvadratas = '';
+let kvadrato_dydis = 100;
+
+for (let i = 1; i <= (kvadrato_dydis * kvadrato_dydis); i++) {
+    kvadratas += '*';
+
+    if(i != 1 && i%kvadrato_dydis == 0)
+        kvadratas += '<br>';
+  
+}
+
+document.querySelector('#ciklai').innerHTML += kvadratas;
