@@ -508,3 +508,45 @@ for (let i = 1; i <= (kvadrato_dydis * kvadrato_dydis); i++) {
 }
 
 document.querySelector('#ciklai').innerHTML += kvadratas;
+
+document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Optional</h5>' + '<br>';
+
+let Benas = 0;
+let Jovita = 0;
+let winner = '';
+let ended = false;
+let final = 222;
+
+  for (let i = 0; i <= 100; i++) {
+    
+    if(ended)
+        break;
+
+    Benas += randomSkaicius(10, 20);
+    Jovita += randomSkaicius(5, 25);
+
+    if(Benas >= final || Jovita >= final) {
+
+      ended = true;
+
+      if(Benas >= final) {
+        winner = '<strong>Benas</strong> surinkęs' + ' ' + Benas;
+      } else {
+        winner = '<strong>Jovita</strong> surinkusi' + ' ' + Jovita;
+      }
+
+    }
+
+  }
+
+document.querySelector('#ciklai').innerHTML += 'Benas:' + ' ' + Benas + ' ' + 'Jovita:' + ' ' + Jovita + '<br>' + 'Žaidimą laimėjo:' + ' ' + winner + ' ' + 'taškus' + '<br>';
+
+document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Vinis</h5>' + '<br>';
+
+let nail = '85';
+let i = 0;
+
+while (i < 10) {
+  text += "<br>The number is " + i;
+  i++;
+}
