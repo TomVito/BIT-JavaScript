@@ -520,7 +520,7 @@ let final = 222;
   for (let i = 0; i <= 100; i++) {
     
     if(ended)
-        break;
+      break;
 
     Benas += randomSkaicius(10, 20);
     Jovita += randomSkaicius(5, 25);
@@ -541,12 +541,25 @@ let final = 222;
 
 document.querySelector('#ciklai').innerHTML += 'Benas:' + ' ' + Benas + ' ' + 'Jovita:' + ' ' + Jovita + '<br>' + 'Žaidimą laimėjo:' + ' ' + winner + ' ' + 'taškus' + '<br>';
 
-document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Vinis</h5>' + '<br>';
+document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Vinis</h5>';
 
-let nail = '85';
-let i = 0;
+let nail = 85;
+let smallhammer = 0;
+let smallhits = '';
+let liko = '';
+var i = 0;
 
-while (i < 10) {
-  text += "<br>The number is " + i;
+while (smallhammer <= nail) {
+
+  smallhammer += randomSkaicius(5, 20);
+
+  liko = nail - smallhammer;
+
   i++;
+
+  smallhits += '<br>' + i + ' smūgiu įkalta:' + ' ' + smallhammer + ' ' + 'mm.' + ' ' + 'Liko įkalti' + ' ' + liko + ' ' + 'mm.';
+
 }
+
+document.querySelector('#ciklai').innerHTML += '<br>' + 'Prireikė mažų smūgių:' + ' ' + '<strong>' + i + '</strong>' + '<br> ' + smallhits + '<br>';
+
