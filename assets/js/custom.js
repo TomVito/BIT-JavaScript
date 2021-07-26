@@ -422,7 +422,22 @@ document.querySelector('#javascript-testai').innerHTML += netyciukas;
 
 //7. Atspausdinkite tris skaičius nuo -10 iki 10 pasinaudodami ta pačia funkcija. Skaičiai mažesni už 0 turi būti pažymėti raudonai, 0 mėlynai, o didesni už nulį žalia spalva.
 
+//9. Pasinaudokite jQuery scroll funkcija. CSS failą nustatykite body tagui parametrą “height” ir priskirkite reikšmę “10000px”. 
+//Taip pat sukurkite du kintamuosius ir suveikus funkcijai paimkite lango viršutinę koordinatę ir viso puslapio aukštį kaip jų reikšmes. 
+//Slenkant puslapiu žemyn, console.log() atvaizduokite kokią procentinę dalį puslapio jau peržiūrėjote.
+//Galite naudoti ir vanilla js variantą:
+//window.addEventListener('scroll', function() { console.log('scrolling'); });
 
+
+window.onscroll = function() {
+
+  let puslapioAukstis     = document.body.scrollHeight;
+  let paslinkimoPozicija  = window.pageYOffset;
+  let langoAukstis        = window.innerHeight;
+  let procentinePozicija  = Math.round((paslinkimoPozicija + langoAukstis) / puslapioAukstis * 100); 
+
+  console.log(procentinePozicija + '%');
+}
 
 //užduotis 'ciklai'
 
@@ -447,6 +462,8 @@ for (let i = 0; i < 400; i++) {
 }
 
 document.querySelector('#ciklai').innerHTML += text;
+
+//300 atsitiktinių skaičių nuo 0 iki 300
 
 document.querySelector('#ciklai').innerHTML += '<br>' +  '<h5>300 atsitiktinių skaičių nuo 0 iki 300</h5>' + '<br>';
 
@@ -473,6 +490,8 @@ for (let i = 0; i < 300; i++) {
 
 document.querySelector('#ciklai').innerHTML += skaiciai + '<br>' + '<strong>Didesni skaičiai už 150:' + ' ' + '<span style="color: blue;">' + didesni + '</span>' + '<br>';
 
+//Skaičiai nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos
+
 document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Skaičiai nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos</h5>' + '<br>';
 
 let integer = 0;
@@ -494,6 +513,8 @@ for(let i = 1; i < 3000; i++) {
 
 document.querySelector('#ciklai').innerHTML += string + '<br>';
 
+//kvadratas + zvaigzdes
+
 document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Kvadratas</h5>' + '<br>';
 
 let kvadratas = '';
@@ -508,6 +529,8 @@ for (let i = 1; i <= (kvadrato_dydis * kvadrato_dydis); i++) {
 }
 
 document.querySelector('#ciklai').innerHTML += kvadratas;
+
+//kortu zaidimas
 
 document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Optional</h5>' + '<br>';
 
@@ -541,6 +564,8 @@ let final = 222;
 
 document.querySelector('#ciklai').innerHTML += 'Benas:' + ' ' + Benas + ' ' + 'Jovita:' + ' ' + Jovita + '<br>' + 'Žaidimą laimėjo:' + ' ' + winner + ' ' + 'taškus' + '<br>';
 
+//vinies kalimas
+
 document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Vinis</h5>';
 
 let nail = 85;
@@ -563,3 +588,146 @@ while (smallhammer <= nail) {
 
 document.querySelector('#ciklai').innerHTML += '<br>' + 'Prireikė mažų smūgių:' + ' ' + '<strong>' + i + '</strong>' + '<br> ' + smallhits + '<br>';
 
+//kvadratas + elementai (div kurimas)
+
+document.querySelector('#ciklai').innerHTML += '<div class="kvadratas"></div>';
+
+document.querySelector('.kvadratas').innerHTML += '<br>' + '<h5>Square</h5>' + '<br>';
+
+let el_septinta = document.querySelector('.kvadratas');
+
+el_septinta.innerHTML += '<div class="parent"></div>';
+
+let el_tevinis = document.querySelector('.parent');
+
+
+let tevinio_aukstis = el_tevinis.offsetHeight;
+let tevinio_plotis  = el_tevinis.offsetWidth;
+let islinde         = 0;
+
+i = 0;
+
+while (i < 300) {
+
+    el_tevinis.innerHTML += '<div class="square"></div>';
+
+    let elementas = document.querySelectorAll('.square')[i];
+    let atsitiktinis_virsus = randomSkaicius(0, 550);
+    let atsitiktine_kaire   = randomSkaicius(0, 550);
+
+    elementas.style.top = atsitiktinis_virsus+'px';
+    elementas.style.left = atsitiktine_kaire+'px';
+
+    if((atsitiktinis_virsus > tevinio_aukstis) 
+        || (atsitiktine_kaire > tevinio_plotis))
+        islinde++;
+
+    i++;
+}
+el_tevinis.innerHTML += '<div style="color: #FFF; font-size: 100px; position: absolute; top: 200px; left: 200px; font-weight: bold;">' + islinde + '</div>';
+el_septinta.innerHTML += '<h5 style="margin-top: 100px;">Už kraštinių išsikišūsių elementų suma: ' + islinde + '</h5>';
+
+//string functions
+
+//let stringas = 'Pavasarį žydi labai daug medžių';
+
+//Apie length
+//console.log(stringas.length); //Konsoleje atvaizduojamas kintamojo reiksmes simboliu kiekis
+
+//Apie split
+//let stringo_masyvas = stringas.split(' ');
+
+//console.log( stringo_masyvas[4] );
+
+//Apie replace()
+//console.log( stringas.replace('žydi', 'atgminsta') );  //Konsoleje atvaizduojamas naujas sakinys su pakeistu zodziu zydi i zodi atgimsta
+
+//Apie repeat()
+//console.log( stringas.repeat(1) );
+
+//Apie charAt() Graziname viena simboli is specifiskos pozicijos
+//console.log( stringas.charAt(0) );
+
+//Apie substr() Graziname simbolius nuo pirmame parametre nurodytos pozicijos iki antrame parametre nurodyto kiekio
+//console.log( stringas.substr(10, 9) );
+
+//Apie toLowerCase()
+//console.log( stringas.toLowerCase() );
+
+//Apie toUpperCase()
+//console.log( stringas.toUpperCase() );
+
+//Apie trim()
+//stringas = '    Pavasarį žydi labai daug medžių         ';
+
+//console.log( stringas.trim() );
+
+//Apie startsWith() true arba false rezultatas
+//boolean
+//console.log( stringas.startsWith('P') );
+
+//Apie endsWith() auksciau minetos funkcijos priespriesa
+//console.log( stringas.endsWith('ų') );
+
+//Apie includes() 
+//console.log( stringas.includes('v') );
+
+//Apie indexOf() 
+//console.log(stringas.indexOf('žydi'));
+
+//Apie lastIndexOf()
+//console.log(stringas.lastIndexOf('ž')); 
+
+document.querySelector('.stringai').innerHTML = '<h5>Stringai<h5/>';
+
+//1. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus (Jonas Jonaitis). Atspausdinti trumpesnį stringą.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '1.' + '<strong/>' + ' ';
+
+let VanDamas = 'Jean-Claude Van Damme';
+let Stalone = 'Sylvester Stallone';
+
+if(VanDamas.length < Stalone.length) {
+  document.querySelector('.stringai').innerHTML += 'Jean-Claude Van Damme';
+} else {
+  document.querySelector('.stringai').innerHTML += 'Sylvester Stallone' + '<br>';
+}
+
+//2. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Vardą atspausdinti tik didžiosiom raidėm, o pavardę tik mažosioms.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '2.' + '<strong/>' + ' ';
+
+let Svarcas = 'Arnold Schwarzenegger';
+let Landgrenas = 'Dolph Lundgren';
+
+let svarco_masyvas = Svarcas.split(' ');
+let landgreno_masyvas = Landgrenas.split(' ');
+
+document.querySelector('.stringai').innerHTML += svarco_masyvas[0].toUpperCase() + ' ' + svarco_masyvas[1].toLowerCase() + ',' + ' ' + landgreno_masyvas[0].toUpperCase() + ' ' + landgreno_masyvas[1].toLowerCase() + '<br>'; 
+
+//3. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. 
+//Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš pirmų vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '3.' + '<strong/>' + ' ';
+
+let Chuckas = 'Chuck Norris';
+let Briusas = 'Bruce Willis';
+
+let chuko_masyvas = Chuckas.split(' ');
+let briuso_masyvas = Briusas.split(' ');
+
+let trecias = Chuckas.charAt(0) + chuko_masyvas[1].charAt(0) + Briusas.charAt(0) + briuso_masyvas[1].charAt(0) + '<br>';
+
+document.querySelector('.stringai').innerHTML += trecias;
+
+//4. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. 
+//Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš trijų paskutinių vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '4.' + '<strong/>' + ' ';
+
+let Lee = 'Bruce Lee';
+let Sygalas = 'Steven Seagal';
+
+let trecias_2 = Lee.substr(0, 3) + Lee.substr(-3) + Sygalas.substr(0, 3) + Sygalas.substr(-3);
+
+document.querySelector('.stringai').innerHTML += trecias_2;

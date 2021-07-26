@@ -186,3 +186,21 @@
 #ciklai {
   word-wrap: break-word;
 }
+
+.parent {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background: rgb(107, 50, 199);
+  margin: 0 auto;
+}
+
+.square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: rgb(132, 245, 3);
+  border: 1px solid black;
+}
