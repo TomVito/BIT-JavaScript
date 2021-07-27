@@ -625,7 +625,7 @@ while (i < 300) {
     i++;
 }
 el_tevinis.innerHTML += '<div style="color: #FFF; font-size: 100px; position: absolute; top: 200px; left: 200px; font-weight: bold;">' + islinde + '</div>';
-el_septinta.innerHTML += '<h5 style="margin-top: 100px;">Už kraštinių išsikišūsių elementų suma: ' + islinde + '</h5>';
+el_septinta.innerHTML += '<h6 style="margin-top: 100px;">Už kraštinių išsikišūsių elementų suma: ' + islinde + '</h6>';
 
 //string functions
 
@@ -686,12 +686,15 @@ document.querySelector('.stringai').innerHTML += '<strong>' + '1.' + '<strong/>'
 
 let VanDamas = 'Jean-Claude Van Damme';
 let Stalone = 'Sylvester Stallone';
+let eighteeshero = '';
 
 if(VanDamas.length < Stalone.length) {
-  document.querySelector('.stringai').innerHTML += 'Jean-Claude Van Damme';
+  eighteeshero = VanDamas;
 } else {
-  document.querySelector('.stringai').innerHTML += 'Sylvester Stallone' + '<br>';
+  eighteeshero = Stalone;
 }
+
+document.querySelector('.stringai').innerHTML += eighteeshero + '<br>';
 
 //2. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Vardą atspausdinti tik didžiosiom raidėm, o pavardę tik mažosioms.
 
@@ -730,4 +733,71 @@ let Sygalas = 'Steven Seagal';
 
 let trecias_2 = Lee.substr(0, 3) + Lee.substr(-3) + Sygalas.substr(0, 3) + Sygalas.substr(-3);
 
-document.querySelector('.stringai').innerHTML += trecias_2;
+document.querySelector('.stringai').innerHTML += trecias_2 + '<br>';
+
+//5. Sukurti kintamąjį su stringu: “Once upon a time in hollywood”. Jame visas “o” (didžiąsias ir mažąsias) pakeisti žvaigždutėm “*”.  Rezultatą atspausdinti.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '5.' + '<strong/>' + ' ';
+
+let hollywood = 'Once upon a time in hollywood';
+
+document.querySelector('.stringai').innerHTML += hollywood.replace(/[Oo]/g, '*') + '<br>';
+
+//6. Sukurti kintamąjį su stringu: “Once upon a time in hollywood”. Suskaičiuoti visas “o” (didžiąsias ir mažąsias) raides. Rezultatą atspausdinti.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '6.' + '<strong/>' + ' ';
+
+document.querySelector('.stringai').innerHTML += hollywood.split(/[Oo]+/).length + '<br>';
+
+//7. Sukurti kintamąjį su stringu: “An American in Paris”. Jame ištrinti visas balses. Rezultatą atspausdinti.
+//Kodą pakartoti su stringais: “Breakfast at Tiffany's”, “2001: A Space Odyssey” ir “It's a Wonderful Life”.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '7.' + '<strong/>' + ' ';
+
+let american = 'An American in Paris';
+let tiffany = 'Breakfast at Tiffany\'s';
+let odysey = '2001: A Space Odyssey';
+let life = 'Its a Wonderful Life';
+
+document.querySelector('.stringai').innerHTML += american.replace(/[aeyiou]/ig,'') + ', ' + tiffany.replace(/[aeyiou]/ig,'') + odysey.replace(/[aeyiou]/ig,'') + ', ' + life.replace(/[aeyiou]/ig,'') + '<br>';
+
+//8. Suskaičiuoti kiek stringe “Don't Be a Menace to South Central While Drinking Your Juice in the Hood” yra žodžių trumpesnių arba lygių nei 5 raidės. 
+//Pakartokite kodą su stringu “Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale”.
+
+document.querySelector('.stringai').innerHTML += '<strong>' + '8.' + '<strong/>' + ' ';
+
+function wordsCounter(phrase, length) {
+
+  let frazes_masyvas = phrase.split(' ');
+  let zodziu_counteris = 0;
+
+  for (let i = 0; i < frazes_masyvas.length; i++) {
+
+    if (frazes_masyvas[i].length <= length)
+        zodziu_counteris++;
+  }
+
+    return zodziu_counteris;
+  
+}
+
+let fraze = 'Don\'t Be a Menace to South Central While Drinking Your Juice in the Hood';
+let fraze2 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
+
+document.querySelector('.stringai').innerHTML += wordsCounter(fraze, 5) + ', ' + wordsCounter(fraze2, 5) + '<br>';
+
+
+//Papildoma užduotis
+
+document.querySelector('.stringai').innerHTML += '<strong>' + 'Papildoma:' + '<strong/>' + ' ';
+
+raides = 'abcdefghijklmnopqrstuvwxyz';
+let randomraides = '';
+
+for ( var i = 0; i < 3; i++ ) {
+
+    randomraides += raides.charAt( Math.floor( Math.random() * raides.length) );
+
+}
+
+document.querySelector('.stringai').innerHTML += randomraides;
