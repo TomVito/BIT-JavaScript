@@ -495,7 +495,7 @@ document.querySelector('#ciklai').innerHTML += skaiciai + '<br>' + '<strong>Dide
 document.querySelector('#ciklai').innerHTML += '<br>' + '<h5>Skaičiai nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos</h5>' + '<br>';
 
 let integer = 0;
-let string = '';
+let stringas = '';
 
 for(let i = 1; i < 3000; i++) {
 
@@ -504,14 +504,14 @@ for(let i = 1; i < 3000; i++) {
     if(Number.isInteger(integer)) {
 
       if(i != 77) {
-        string += ', ';
+        stringas += ', ';
       }
-        string += i;
+        stringas += i;
     }
 
 }
 
-document.querySelector('#ciklai').innerHTML += string + '<br>';
+document.querySelector('#ciklai').innerHTML += stringas + '<br>';
 
 //kvadratas + zvaigzdes
 
@@ -763,6 +763,7 @@ document.querySelector('.stringai').innerHTML += american.replace(/[aeyiou]/ig,'
 
 //8. Suskaičiuoti kiek stringe “Don't Be a Menace to South Central While Drinking Your Juice in the Hood” yra žodžių trumpesnių arba lygių nei 5 raidės. 
 //Pakartokite kodą su stringu “Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale”.
+//padaryta funkcija
 
 document.querySelector('.stringai').innerHTML += '<strong>' + '8.' + '<strong/>' + ' ';
 
@@ -786,7 +787,6 @@ let fraze2 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvar
 
 document.querySelector('.stringai').innerHTML += wordsCounter(fraze, 5) + ', ' + wordsCounter(fraze2, 5) + '<br>';
 
-
 //Papildoma užduotis
 
 document.querySelector('.stringai').innerHTML += '<strong>' + 'Papildoma:' + '<strong/>' + ' ';
@@ -801,3 +801,43 @@ for ( var i = 0; i < 3; i++ ) {
 }
 
 document.querySelector('.stringai').innerHTML += randomraides;
+
+//Funkcijos kūrimas
+
+document.querySelector('.functions').innerHTML += '<br>' + '<h5>Functions</h5>' + '<br>';
+
+//1. Sukurkite funkciją kuri patikrintų du gautus parametrus stringo pavidale. Tikrinamas dvieju stringų ilgis. 
+//Sukurti tris galimus scenarijus: Jei pirmasis yra didesnis už antrą. Jei antrasis didesnis už pirmąjį. 
+//Jei abiejų ilgis vienodas. Funkciją turi grąžinti tekstinį atsakymą. Pvz. ‘Pirmasis stringas yra ilgesnis už antrajį’. Atsakymą atvaizduokite lange.
+
+document.querySelector('.functions').innerHTML += '<strong>' + '1.' + '<strong/>' + ' ';
+
+function stringLength(first, second) {
+
+  let sakinys = first.length;
+  let antrassakinys = second.length;
+  let gautassakinys = ' ';
+
+  if (sakinys > antrassakinys) {
+    gautassakinys = 'Pirmasis stringas yra ilgesnis už antrajį';
+  } else if (antrassakinys > sakinys) {
+    gautassakinys = 'Antras stringas yra ilgesnis už pirmąjį';
+  } else {
+    gautassakinys = 'Stringų ilgiai vienodi';
+  }
+
+  return gautassakinys;
+
+}
+
+  let alus = 'Bet aš vistiek gersiu alų savo vokiečių gatvėj';
+  let vokietis = 'Muzika kuri auga, muzika kuri skauda, muzika kuri saugo';
+
+
+document.querySelector('.functions').innerHTML += stringLength(alus, vokietis) + '<br>';
+
+//2. Sukurkite funkciją kuri priimtų penkis parametrus ir grąžintų stringą, kuriame x būtų pakeistas kitamaisiais. 
+//“Jūs būsite x ir gyvensite x. Susituoksite su x bei turėsite šunį vardu x, o mirsite sulaukę x metų.” Pakartokite funkciją tris kartus su vis kitokiais parametrais.
+
+document.querySelector('.functions').innerHTML += '<strong>' + '2.' + '<strong/>' + ' ';
+
