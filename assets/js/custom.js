@@ -841,3 +841,163 @@ document.querySelector('.functions').innerHTML += stringLength(alus, vokietis) +
 
 document.querySelector('.functions').innerHTML += '<strong>' + '2.' + '<strong/>' + ' ';
 
+function xstring(x1, x2, x3, x4, x5) {
+
+document.querySelector('.functions').innerHTML += 'Jūs būsite' + ' ' + x1 + ' ' + 'ir gyvensite' + ' ' + x2 + '.' + ' ' + 'Susituoksite su' + ' ' + x3 + ' ' + 'bei turėsite šunį vardu' + ' ' + x4 + ', o mirsite sulaukę' + ' ' + x5 + ' ' + 'metų.' + '<br>';
+  
+}
+
+xstring('sveikas', 'ilgai', 'protinga moterimi', 'Tobis', '86');
+xstring('ligotas', 'trumpai', 'vyru', 'Bučkis', '40');
+xstring('įdomus', 'linksmai', 'bet kuo', 'katinas', 'gražių');
+
+//3. Sukurkite funkciją kuri priimtų vieną parametrą. Funkcija turi apskaičiuoti šuns amžių. Vieneri žmogaus metai = septyneri šuns metai. 
+//Įvedamas parametras žmogaus metais. Funkcija turi grąžinti atsakymą stringo pavidalu: "Jūsų šuniukui yra x metų".
+
+document.querySelector('.functions').innerHTML += '<strong>' + '3.' + '<strong/>' + ' ';
+
+
+
+function dogLife(years) {
+
+let metai = 'metai';
+
+if ((years * 7 > 10 && years * 7 < 20) || years * 7 % 10 == 0) {
+  metai = 'metų';
+}
+
+let dogyears = 'Jūsų šuniukui yra'+ ' ' + years * 7 + ' ' + metai + '.';
+
+return dogyears;
+
+}
+
+document.querySelector('.functions').innerHTML += dogLife('10') + '<br>';
+
+//4. Sukurkite funkciją kuri konvertuotų kilometrus į mylias ir atvirkščiai. Rezultatą išveskite ekrane.
+
+document.querySelector('.functions').innerHTML += '<strong>' + '4.' + '<strong/>' + ' ';
+
+//Masyvai
+
+document.querySelector('.masyvai').innerHTML += '<br>' + '<h5>Masyvai</h5>' + '<br>';
+
+//1. Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
+
+document.querySelector('.masyvai').innerHTML += '<strong>' + '1.' + '<strong/>' + ' ';
+
+let naujas_masyvas = [];
+
+for (let i = 0; i < 30; i++) {
+
+  let skaicius = randomSkaicius(5, 25);
+  naujas_masyvas.push(skaicius);
+
+}
+
+document.querySelector('.masyvai').innerHTML += naujas_masyvas + '<br>';
+
+//2. Naudodamiesi 1 uždavinio masyvu:
+
+//Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
+
+document.querySelector('.masyvai').innerHTML += '<strong>' + '2.' + '<strong/>' + ' ';
+
+let count = 0;
+
+for (let i = 0; i < naujas_masyvas.length; ++i) {
+
+    if(naujas_masyvas[i] > 10)
+        count++;
+
+}
+
+document.querySelector('.masyvai').innerHTML += 'A)' + ' ' + 'Rasta didesnių už 10:' + ' ' + count + '<br>';
+
+//Raskite didžiausią masyvo reikšmę ir jos indeksą;
+
+
+let maxreiksme = Math.max(...naujas_masyvas);
+
+document.querySelector('.masyvai').innerHTML += 'B)' + ' ' +  'Didžiausia reikšmė:' + ' ' + maxreiksme + '. ' + 'Jos indeksas:' + ' ' + naujas_masyvas.indexOf(maxreiksme) + '<br>';
+
+//Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
+
+let even = 0;
+
+for(let i = 0; i < naujas_masyvas.length; i++) {
+
+   const el = naujas_masyvas[i];
+
+   if(i % 2 == 0) {
+
+      even += el;
+
+   }
+
+ }
+
+document.querySelector('.masyvai').innerHTML += 'C)' + ' ' + 'Porinių indeksų reikšmių suma:' + ' ' + even + '<br>';
+
+//Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
+
+let masyvas_minus = [];
+
+for(let i = 0; i < naujas_masyvas.length; i++) {
+
+  masyvas_minus[i] = naujas_masyvas[i] - i;
+
+}
+
+document.querySelector('.masyvai').innerHTML += 'D)' + ' ' + masyvas_minus + '<br>';
+
+//Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
+
+for(let i = 0; i < 10; i++) {
+
+naujas_masyvas.push(randomSkaicius(5 , 25))
+
+}
+
+document.querySelector('.masyvai').innerHTML += 'E)' + ' ' + naujas_masyvas + '<br>';
+
+//Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
+
+let evenarray = [];
+let oddarray = [];
+
+for(let i = 0; i < naujas_masyvas.length; i++) {
+
+ if (i % 2 == 0) {
+    evenarray.push(naujas_masyvas[i])
+ } else {
+   oddarray.push(naujas_masyvas[i])
+ }
+
+}
+
+document.querySelector('.masyvai').innerHTML += 'F)' + ' ' + evenarray + '<br>' + oddarray + '<br>';
+
+//Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
+
+let firstindex = 0;
+
+for(let i = 0; i < naujas_masyvas[i]; i++) {
+
+  if( naujas_masyvas[i] > 10) {
+
+    firstindex = i;
+
+    break;
+
+  }
+
+}
+
+document.querySelector('.masyvai').innerHTML += 'G)' + ' ' + firstindex + '<br>';
+
+//Lengvai savaitgaliui 
+
+let tekstinismasyvas = ['Jogile', 'Aiste', 'Jovita', 'Egle', 'Marius', 'Gintautas'];
+
+document.querySelector('.masyvai').innerHTML += 'Lengvai savaitgaliui)' + ' ' + tekstinismasyvas.sort() + '<br>' + tekstinismasyvas.reverse();
