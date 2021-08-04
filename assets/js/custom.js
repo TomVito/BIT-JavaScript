@@ -791,12 +791,12 @@ document.querySelector('.stringai').innerHTML += wordsCounter(fraze, 5) + ', ' +
 
 document.querySelector('.stringai').innerHTML += '<strong>' + 'Papildoma:' + '<strong/>' + ' ';
 
-raides = 'abcdefghijklmnopqrstuvwxyz';
+abecele = 'abcdefghijklmnopqrstuvwxyz';
 let randomraides = '';
 
 for ( var i = 0; i < 3; i++ ) {
 
-    randomraides += raides.charAt( Math.floor( Math.random() * raides.length) );
+    randomraides += abecele.charAt( Math.floor( Math.random() * abecele.length) );
 
 }
 
@@ -804,7 +804,36 @@ document.querySelector('.stringai').innerHTML += randomraides;
 
 //Funkcijos kūrimas
 
-document.querySelector('.functions').innerHTML += '<br>' + '<h5>Functions</h5>' + '<br>';
+//Heading function 
+/*
+function headingas(uzduotis, tema = false, tevinis = '.appended-text') {
+
+  let child = document.querySelector(tevinis);
+
+  if(tema) {
+
+      let klase = tema.replace(' ', '').toLowerCase();
+
+      document.querySelector(tevinis).innerHTML += '<div class="' + klase + '"></div>'; 
+      //Kaip ir ankstesneje uzduotyje sukurtas parent elementas uzduociai ir headingai kiekvienai is ju
+
+      child = document.querySelector('.' + klase);
+      
+      child.innerHTML += '<h5>' + tema + '</h5>';
+
+  } 
+
+  child.innerHTML += '<h5>' + uzduotis + '</h5>';
+
+  return '.' + child.className;
+
+}
+
+let elementas = headingas('Pirma užduotis', 'Funkcijos 2021-07-28');
+let el_selector = document.querySelector(elementas);
+pvz el_selector.innerHTML +=  '<h1>Objektai</h1>';
+
+*/
 
 //1. Sukurkite funkciją kuri patikrintų du gautus parametrus stringo pavidale. Tikrinamas dvieju stringų ilgis. 
 //Sukurti tris galimus scenarijus: Jei pirmasis yra didesnis už antrą. Jei antrasis didesnis už pirmąjį. 
@@ -878,6 +907,20 @@ document.querySelector('.functions').innerHTML += dogLife('10') + '<br>';
 
 document.querySelector('.functions').innerHTML += '<strong>' + '4.' + '<strong/>' + ' ';
 
+function matai(ilgis, mylia = false) {
+
+  let skirtumas = 0.621371;
+
+  if(mylia) {
+      return ilgis / skirtumas;
+  }
+
+  return ilgis * skirtumas;
+
+}
+
+document.querySelector('.functions').innerHTML += matai(50, true);
+
 //Masyvai
 
 document.querySelector('.masyvai').innerHTML += '<br>' + '<h5>Masyvai</h5>' + '<br>';
@@ -912,14 +955,14 @@ for (let i = 0; i < naujas_masyvas.length; ++i) {
 
 }
 
-document.querySelector('.masyvai').innerHTML += 'A)' + ' ' + 'Rasta didesnių už 10:' + ' ' + count + '<br>';
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'A)' + '</strong>' + ' ' + 'Rasta didesnių už 10:' + ' ' + count + '<br>';
 
 //Raskite didžiausią masyvo reikšmę ir jos indeksą;
 
 
 let maxreiksme = Math.max(...naujas_masyvas);
 
-document.querySelector('.masyvai').innerHTML += 'B)' + ' ' +  'Didžiausia reikšmė:' + ' ' + maxreiksme + '. ' + 'Jos indeksas:' + ' ' + naujas_masyvas.indexOf(maxreiksme) + '<br>';
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'B)' + '</strong>' + ' ' +  'Didžiausia reikšmė:' + ' ' + maxreiksme + '. ' + 'Jos indeksas:' + ' ' + naujas_masyvas.indexOf(maxreiksme) + '<br>';
 
 //Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
 
@@ -927,17 +970,16 @@ let even = 0;
 
 for(let i = 0; i < naujas_masyvas.length; i++) {
 
-   const el = naujas_masyvas[i];
 
    if(i % 2 == 0) {
 
-      even += el;
+      even += naujas_masyvas[i];
 
    }
 
  }
 
-document.querySelector('.masyvai').innerHTML += 'C)' + ' ' + 'Porinių indeksų reikšmių suma:' + ' ' + even + '<br>';
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'C)' + '</strong>' + ' ' + 'Porinių indeksų reikšmių suma:' + ' ' + even + '<br>';
 
 //Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
 
@@ -949,7 +991,7 @@ for(let i = 0; i < naujas_masyvas.length; i++) {
 
 }
 
-document.querySelector('.masyvai').innerHTML += 'D)' + ' ' + masyvas_minus + '<br>';
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'D)' + '</strong>' + ' ' + masyvas_minus + '<br>';
 
 //Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
 
@@ -959,7 +1001,7 @@ naujas_masyvas.push(randomSkaicius(5 , 25))
 
 }
 
-document.querySelector('.masyvai').innerHTML += 'E)' + ' ' + naujas_masyvas + '<br>';
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'E)' + '</strong>' + ' ' + naujas_masyvas + '<br>';
 
 //Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
 
@@ -976,7 +1018,7 @@ for(let i = 0; i < naujas_masyvas.length; i++) {
 
 }
 
-document.querySelector('.masyvai').innerHTML += 'F)' + ' ' + evenarray + '<br>' + oddarray + '<br>';
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'F)' + '</strong>' + ' ' + evenarray + '<br>' + oddarray + '<br>';
 
 //Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
 
@@ -994,10 +1036,198 @@ for(let i = 0; i < naujas_masyvas[i]; i++) {
 
 }
 
-document.querySelector('.masyvai').innerHTML += 'G)' + ' ' + firstindex + '<br>';
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'G)' + '</strong>' + ' ' + firstindex + '<br>';
 
 //Lengvai savaitgaliui 
 
 let tekstinismasyvas = ['Jogile', 'Aiste', 'Jovita', 'Egle', 'Marius', 'Gintautas'];
 
-document.querySelector('.masyvai').innerHTML += 'Lengvai savaitgaliui)' + ' ' + tekstinismasyvas.sort() + '<br>' + tekstinismasyvas.reverse();
+document.querySelector('.masyvai').innerHTML += '<strong>' + 'Lengvai savaitgaliui)' + '</strong>' + + ' ' + tekstinismasyvas.sort() + '<br>' + tekstinismasyvas.reverse() + '<br>';
+
+//1. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
+
+document.querySelector('.masyvai').innerHTML += '2021-08-22' + '<br>' + '<strong>' + '1. ' + '</strong>';
+
+raides = 'ABCD';
+let atsitiktinis = [];
+let raideA = 0;
+let raideB = 0;
+let raideC = 0;
+let raideD = 0;
+
+for ( let i = 0; i < 200; i++ ) {
+
+  atsitiktinis += raides.charAt( Math.floor( Math.random() * raides.length) );
+
+  if(atsitiktinis[i] == 'A')
+  raideA++;
+
+  if(atsitiktinis[i] == 'B')
+  raideB++;
+
+  if(atsitiktinis[i] == 'C')
+  raideC++;
+
+  if(atsitiktinis[i] == 'D')
+  raideD++;
+
+}
+
+document.querySelector('.masyvai').innerHTML += atsitiktinis + '<br>' + 'A raidžių:' + ' ' + raideA + '<br>' + 'B raidžių:' + ' ' + raideB + '<br>' + 'C raidžių:' + ' ' + raideC + '<br>' + 'D raidžių:' + ' ' + raideD;
+
+//2. Išrūšiuokite pirmo uždavinio masyvą pagal abecėlę.
+
+document.querySelector('.masyvai').innerHTML += '<br>' + '<strong>' + '2.' + '</strong>' + ' ';
+
+let alphastring = atsitiktinis.split('').sort().join('');
+
+document.querySelector('.masyvai').innerHTML += alphastring;
+
+//3. Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+
+document.querySelector('.masyvai').innerHTML += '<br>' + '<strong>' + '3. ' + '</strong>';
+
+let randommasyvas1 = [];
+let randomskaicius1 = 0;
+let randommasyvas2 = [];
+let randomskaicius2 = 0;
+
+while (randommasyvas1.length < 100) {
+
+  randomskaicius1 = randomSkaicius(100, 999);
+
+  if(!randommasyvas1.includes(randomskaicius1)) {
+  randommasyvas1.push(randomskaicius1);
+
+  }
+
+  randomskaicius2 = randomSkaicius(100, 999);
+
+  if(!randommasyvas2.includes(randomskaicius2)) {
+  randommasyvas2.push(randomskaicius2);
+
+  }
+
+}
+
+document.querySelector('.masyvai').innerHTML += 'Masyvas 1: ' + randommasyvas1 + '<br>' + 'Masyvas 2: ' + randommasyvas2;
+
+//4. Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 3 uždavinio masyve, bet nėra antrame 3 uždavinio masyve.
+
+document.querySelector('.masyvai').innerHTML += '<br>' + '<strong>' + '4. ' + '</strong>';
+
+let masyvastikis1 = [];
+
+for(let i = 0; i < randommasyvas1.length; i++) {
+
+if (!randommasyvas2.includes(randommasyvas1[i])) {
+
+  masyvastikis1.push(randommasyvas1[i]);
+
+  }
+
+}
+
+document.querySelector('.masyvai').innerHTML += masyvastikis1;
+
+//5. Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 3 uždavinio masyvuose.
+
+document.querySelector('.masyvai').innerHTML += '<br>' + '<strong>' + '5. ' + '</strong>';
+
+let masyvasisabieju = [];
+
+masyvasisabieju.push(randommasyvas1.filter(val => randommasyvas2.includes(val)));
+
+document.querySelector('.masyvai').innerHTML += masyvasisabieju;
+
+//6. Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25. Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. 
+//Penktas trečio ir ketvirto suma ir t.t.
+
+document.querySelector('.masyvai').innerHTML += '<br>' + '<strong>' + '6. ' + '</strong>';
+
+//Objektai
+
+document.querySelector('.objektai').innerHTML += '<Br>' + '<h5>Objektai</h5>';
+
+//2021-08-03. Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 3 uždavinio masyvo reikšmės, o jo reikšmės būtų iš antrojo masyvo.
+
+document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '2021-08-03' + '</strong>' + ' ';
+
+let objektoMasyvas = {};
+
+for (let i = 0; i < randommasyvas1.length; i++) {
+
+    objektoMasyvas[randommasyvas1[i]] = randommasyvas2[i];
+
+}
+
+document.querySelector('.objektai').innerHTML += 'Atvaizduota konsoleje' + '<br>';
+
+console.log(objektoMasyvas);
+
+//2021-08-04. 1. Sugeneruokite 100 eilučių objektą kurio indeksas turėtų būti sukurtas iš atsitiktinių raidžių, o reikšmė atsitiktinis skaičius nuo 55 iki 5555.
+
+
+document.querySelector('.objektai').innerHTML += '<strong>' + '2021-08-04:' + '</strong>' + ' ';
+
+document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '1. ' + '</strong>' + ' ';
+
+let objektasSimtas = {};
+
+for (let i = 0; i < 100; i++) {
+
+  randomraides += abecele.charAt( Math.floor( Math.random() * abecele.length) );
+  objektasSimtas[randomraides] = randomSkaicius(55, 5555)
+
+}
+
+console.log(objektasSimtas);
+
+document.querySelector('.objektai').innerHTML += objektasSimtas;
+
+//2. Sukurkite 115 eilučių masyvą ir iš jo ištrinkite visus elementus turinčius porinį indeksą
+
+document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '2. ' + '</strong>' + ' ';
+
+let masyvasisvalytas = [];
+
+for (let i = 0; i < 115; i++) {
+
+  masyvasisvalytas.push(randomSkaicius(5, 25));
+
+}
+
+for( var i = 0; i < masyvasisvalytas.length; i++){ 
+
+  if ( masyvasisvalytas[i] % 2 === 0) { 
+
+    masyvasisvalytas.splice(i, 1);
+
+  }
+
+}
+
+//arba
+
+// for (let i = 0; i < 115; i++) {
+
+//   eiluciumasyvas.push(randomSkaicius(5, 50));
+
+//   if( i % 2 == 0)
+
+//   delete eiluciumasyvas[i];
+
+// }
+
+document.querySelector('.objektai').innerHTML += 'Išvalytas: ' + masyvasisvalytas + ' ';
+
+console.log(masyvasisvalytas);
+
+//3. Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. 
+//Reikšmes kurios tame masyve yra ne unikalios pergeneruokite iš naujo taip, kad visos reikšmės masyve būtų unikalios. 
+//Išrūšiuokite masyvą taip, kad jo didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų. 
+//Paskaičiuokite pirmos ir antros masyvo dalies sumas (neskaičiuojant vidurinės). 
+//Jeigu sumų skirtumas (modulis, absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite. (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30)
+
+document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '3. ' + '</strong>' + ' ';
+
