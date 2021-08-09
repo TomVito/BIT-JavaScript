@@ -1172,24 +1172,42 @@ document.querySelector('.objektai').innerHTML += '<strong>' + '2021-08-04:' + '<
 
 document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '1. ' + '</strong>' + ' ';
 
-let objektasSimtas = {};
+function randomString(length) {
 
-for (let i = 0; i < 100; i++) {
+  let randomabecele = '';
+  let abecele = 'abcdefghijklmnopqrstuvwxyz';
 
-  randomraides += abecele.charAt( Math.floor( Math.random() * abecele.length) );
-  objektasSimtas[randomraides] = randomSkaicius(55, 5555)
+  for ( let i = 0; i < length; i++ ) {
+
+    randomabecele += abecele.charAt( Math.floor( Math.random() * abecele.length) );
+
+  }
+
+  return randomabecele;
 
 }
 
-console.log(objektasSimtas);
+let objektasSimtas = {};
 
-document.querySelector('.objektai').innerHTML += objektasSimtas;
+for ( let i = 0; i < 100; i++ ) {
+
+  let randomabecele = randomString(20);
+  let randomskaicius = randomSkaicius(55, 5555);
+
+  objektasSimtas[randomabecele] = randomskaicius;
+
+}
+
+document.querySelector('.objektai').innerHTML += objektasSimtas + ' ' + 'Atvaizduota konsolėje.';
+
+console.log(objektasSimtas);
 
 //2. Sukurkite 115 eilučių masyvą ir iš jo ištrinkite visus elementus turinčius porinį indeksą
 
 document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '2. ' + '</strong>' + ' ';
 
 let masyvasisvalytas = [];
+let masyvaslikutis = [];
 
 for (let i = 0; i < 115; i++) {
 
@@ -1197,13 +1215,15 @@ for (let i = 0; i < 115; i++) {
 
 }
 
-for( var i = 0; i < masyvasisvalytas.length; i++){ 
+for( var i = 0; i < masyvasisvalytas.length; i++) { 
 
-  if ( masyvasisvalytas[i] % 2 === 0) { 
+  if ( i % 2 == 1) { 
 
-    masyvasisvalytas.splice(i, 1);
+    masyvaslikutis.push(masyvasisvalytas[i]);
 
-  }
+  } 
+
+  masyvasisvalytas.splice(i - 1 , 1);
 
 }
 
@@ -1219,15 +1239,160 @@ for( var i = 0; i < masyvasisvalytas.length; i++){
 
 // }
 
-document.querySelector('.objektai').innerHTML += 'Išvalytas: ' + masyvasisvalytas + ' ';
+document.querySelector('.objektai').innerHTML += 'Išvalytas: ' + masyvasisvalytas + '<br>' + 'Ištrinta: ' + masyvaslikutis;
 
 console.log(masyvasisvalytas);
 
-//3. Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. 
+//3. Sugeneruokite 15 eilučių masyvą, kuriame turėtume objektus, kurie nurodytų informaciją sudarytą iš trijų reikšmių. 
+//Reikšmės ir indeksai turi būti sugeneruoti atsitiktinai. Panaudokite masyvą, kad sugeneruoti lentelę ir ją patalpinkite Mitech pavyzdžio dešinėje pusėje atsidarančiame lange.
+
+document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '3. ' + '</strong>';
+
+document.querySelector('.objektai').innerHTML += 'Padaryta Mitech projekte';
+
+//5. Naudokite funkcija randomSkaicius(). Sugeneruokite 6 kintamuosius su atsitiktinem reikšmėm nuo 1000 iki 9999. 
+//Atspausdinkite reikšmes viename stringe, išrūšiuotas nuo didžiausios iki mažiausios, atskirtas tarpais. Naudoti ciklų ir masyvų NEGALIMA.
+
+document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '5. ' + '</strong>';
+
+let kintamasis1 = randomSkaicius(1000, 9999);
+let kintamasis2 = randomSkaicius(1000, 9999);
+let kintamasis3 = randomSkaicius(1000, 9999);
+let kintamasis4 = randomSkaicius(1000, 9999);
+let kintamasis5 = randomSkaicius(1000, 9999);
+let kintamasis6 = randomSkaicius(1000, 9999);
+
+let kintamasistevas = '';
+
+document.querySelector('.objektai').innerHTML += kintamasistevas;
+
+
+
+//*. Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. 
 //Reikšmes kurios tame masyve yra ne unikalios pergeneruokite iš naujo taip, kad visos reikšmės masyve būtų unikalios. 
 //Išrūšiuokite masyvą taip, kad jo didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų. 
 //Paskaičiuokite pirmos ir antros masyvo dalies sumas (neskaičiuojant vidurinės). 
 //Jeigu sumų skirtumas (modulis, absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite. (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30)
 
-document.querySelector('.objektai').innerHTML += '<br>' + '<strong>' + '3. ' + '</strong>' + ' ';
+// multidimensional array
 
+document.querySelector('.naujalentele').innerHTML = '<br>' + '<h5>Lentelė</h5>';
+
+document.querySelector('.naujalentele').innerHTML += '<table id="nauja_lentele" class="paskutinelentele">' 
+                                                      + '<thead>' 
+                                                      + '<th>Miestas</th>' 
+                                                      + '<th>Adresas</th>' 
+                                                      + '<th>Prekių likutis</th>' 
+                                                      + '</thead>' 
+                                                      + '<tbody>' 
+                                                      + '</tbody>' 
+                                                      + '</table>';
+
+let paskutine_lentele = document.querySelector('.paskutinelentele > tbody');
+
+let masyvas0805 = [
+
+  {
+    miestas: 'Kaunas',
+    adresas: 'Savanorių pr. 276',
+    likutis: 13
+  },
+  {
+    miestas: 'Vilnius',
+    adresas: 'Kauno g. 4',
+    likutis: 7
+  },
+  {
+    miestas: 'Rokiškis',
+    adresas: 'Panevėžio g. 12',
+    likutis: 24
+  },
+
+];
+
+for(let i = 0; i < 10; i++) {
+
+let objektas = {
+
+  miestas: randomString(15),
+  adresas: randomString(25),
+  likutis: randomSkaicius(1, 99)
+
+    }
+
+  masyvas0805.push(objektas);
+
+}
+
+for(let i = 0; i < masyvas0805.length; i++) {
+
+paskutine_lentele.innerHTML += '<tr><td>' + masyvas0805[i]['miestas'] + '</td>' + '<td>' + masyvas0805[i]['adresas'] + '</td>' + '<td>' + masyvas0805[i]['likutis'] + '</td>';
+
+}
+
+//+++ klases 
+
+class pirmojiKlase {
+
+    constructor() {
+
+      let x = this.test();
+
+      return x;
+
+    }
+
+    test() {
+
+    return 'x';
+
+    }
+
+    test2() {
+
+      return 0;
+
+    }
+
+    test3() {
+
+      return 'y';
+
+    }
+
+}
+
+let classtest = new pirmojiKlase();
+
+console.log(classtest);
+
+//switch kartojimas
+
+function switchFunkcija(get) {
+
+      let grazinimas = '';
+
+      switch(get) {
+
+          case 'pirmas':
+            grazinimas = 'Rezultatas yra pirmas';
+          break;
+
+          case 'antras':
+            grazinimas = 'Rezultatas yra antras';
+          break;
+
+          case 'trecias':
+            grazinimas = 'Rezultatas yra trecias';
+          break;
+
+          default:
+            grazinimas = 'Parametras nepaduotas';
+
+      }
+
+      return grazinimas;
+
+}
+
+console.log(switchFunkcija(''));
